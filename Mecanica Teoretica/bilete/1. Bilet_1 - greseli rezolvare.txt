@@ -1,0 +1,20 @@
+Greseli bilet 1 Victorio
+
+
+
+in primul rand la 1 versorul lui r nu e cu j ci e cu r, de la 3 dimensiuni presupun
+
+formulele par corecte dar rezultatele sunt greșite anyway
+
+la 2.1 e corect
+
+la 2.2 e corect doar că am uitat sa derivez și 
+Ro pt energia cinetică și de aia se duce de râpă 
+toate rezultatele ce continua
+și integrala prima nu am zis corect
+
+la 2.3 totul e corect până la ultima derivare a 
+sistemului (derivarea la dt, am uitat sa derivez și sinusurile)
+
+la 3 formulele care le-am aplicat îs corecte, 
+dar simplificarea aia e o prostie și deci rezultatele îs gresite
