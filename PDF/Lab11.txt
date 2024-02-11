@@ -1,0 +1,63 @@
+#include <stdio.h>
+#include <math.h>
+#include <stdlib.h>
+#define n 100
+
+
+
+
+double f(double x)
+{
+    return sin(x);
+}
+
+void generare(double a,double b,double x[],double y[])
+{
+    double h;
+    h=(b-a)/(n-1);
+    for(int i=0;i<n;i++)
+    {
+    x[i]=a+h*i;
+    }
+}
+
+void derivata(double x[],double y[],double y_derivat[])
+{
+
+    for(int i=0;i<=n+1;i++)
+{
+    y_derivat[i]=(y[i+1]-y[i])/(x[i+1]-x[i]);
+}
+}
+
+int main()
+{
+    int i;
+    double b=2*M_PI,a=0;
+    double x[n+1],y[n+1];
+    double y_derivat[n+1];
+
+
+    generare(a,b,x,y);
+
+    for(i=0;i<n;i++)
+    {
+        y[i]=f(x[i]);
+        printf("y=%f\n",y[i]);
+    }
+            for(i=0;i<n;i++)
+{
+    derivata(x,y,y_derivat);
+
+        y_derivat[i]=(y[i+1]-y[i])/(x[i+1]-x[i]);
+        printf("y_derivat=%f\n",y_derivat[i]);
+}
+
+
+    FILE *fisier = fopen("citire_date.txt", "wb");
+    {
+        for(int i=0;i<=n;i++)
+            fprintf(fisier,"y=%f\n y_derivat=%f\n",y,y_derivat);
+    }
+    return 0;
+}

@@ -1,0 +1,26 @@
+#include <iostream>
+#define n 4
+using namespace std;
+
+double rezolvare(double x[n],double y[n],double k)
+{
+    int i,j;
+    double s=0,p;
+    for(i=0;i<n;i++)
+    {
+        p=1;
+        for(j=0;j<n;j++)
+        if(j!=i)p*=(k-x[j])/(x[i]-x[j]);
+        s+=y[i]*p;
+    }
+    return s;
+}
+int main()
+{
+    double x[n]={0,2,4,6}, y[n]={0,0.4,0.42,0.03},k=0,ok=1;
+    while(k<=6)
+    {
+        cout<<k<<' '<<rezolvare(x,y,k)<<endl;
+        k=k+0.1;
+    }
+}

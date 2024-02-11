@@ -1,0 +1,41 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#define n 100
+
+double f(double t, double y)
+{
+    return 2*y*t;
+}
+void Euler(double t[], double y[])
+{
+    double h=0.1;
+
+    for(int i=0;i<n;i++)
+    {
+
+        t[i+1]=t[i]+h;
+       if(t[i+1]>1.7)
+       break;
+    }
+    for(int i=0; i<6; i++)
+    {
+        y[i]=exp(pow(t[i],2)-1);
+    }
+    for(int i=0; i<6;i++)
+    {
+        y[i+1]= y[i]+h* f(t[i],y[i]);
+        printf("%lf\n", y[i+1]);
+    }
+
+}
+
+int main()
+{
+    double y[n], t[n],val;
+    t[0]=1;
+    y[0]=1;
+    Euler (t,y);
+    printf("\nRezultatul integralei este %lf\n", val);
+    return 0;
+}

@@ -1,0 +1,67 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+int nrmax=100;
+double f (double x)
+{
+    return (x-2)*(x-5);
+}
+double fderiv (double x)
+{
+    return 2*x-7;
+}
+void mettg(double x0,double delta,double *sol,double *eroare)
+{
+    double x;int i=0;
+    while((f(x0)>delta)&&(i<nrmax))
+    {
+       x=x0-(f(x0)/fderiv(x0));
+       *eroare=x-x0;
+       x0=x;
+       i++;
+    }
+    *sol=x0;
+    cout<<"nr de pasi: "<<i<<endl;
+}
+int main()
+{
+    double x0=0;
+    double delta=1E-3;
+    double sol, eroare;
+    mettg(x0,delta,&sol,&eroare);
+    cout<<"solutia este:"<<sol<<endl<<"cu eroarea: "<<eroare;
+}
+*************************************************************************
+#include <iostream>
+#include <cmath>
+using namespace std;
+int nrmax=100;
+double f (double x)
+{
+    return pow(x,7)-5;
+}
+double fderiv (double x)
+{
+    return 7*pow(x,6);
+}
+void mettg(double x0,double delta,double *sol,double *eroare)
+{
+    double x;int i=0;
+    while((f(x0)>delta)&&(i<nrmax))
+    {
+       x=x0-(f(x0)/fderiv(x0));
+       *eroare=x-x0;
+       x0=x;
+       i++;
+    }
+    *sol=x0;
+    cout<<"nr de pasi: "<<i<<endl;
+}
+int main()
+{
+    double x0=100;
+    double delta=1E-3;
+    double sol, eroare;
+    mettg(x0,delta,&sol,&eroare);
+    cout<<"solutia este:"<<sol<<endl<<"cu eroarea: "<<eroare;
+}

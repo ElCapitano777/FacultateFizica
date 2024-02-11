@@ -1,0 +1,89 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+double f(double x)
+{
+    return x*x-9;
+}
+
+int main()
+{
+    double a=0,b=10,c,delta=0.01,fa,fb;
+        fa=f(a);
+        fb=f(b);
+    if (fa==0) 
+    {
+        cout<<a<<" este o solutie"<<endl;
+    }
+    if (fb==0) 
+    {
+        cout<<b<<" este o solutie"<<endl;
+    }
+    if ((fa*fb)<0) 
+    while(true)
+    {
+        c=(a+b)/2;
+        if (fabs(f(c))<delta) 
+        {
+            cout<<c<<" este solutie"<<endl;
+            break;
+        }
+        if ((fa*f(c))<0) b=c;
+        else a=c;
+    }
+    else cout<<"nu se poate reolva ecuatia";
+    return 0;
+}
+***************************************************************
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+double f(double x)
+{
+    return x*x-9;
+}
+
+void injumatatire(double a, double b, double delta, double *solutie, double *err)
+{
+    double c,fa,fb;
+    int i=0;
+    fa=f(a);
+        fb=f(b);
+    if (fa==0) 
+    {
+        *solutie=c;
+            *err=(b-a)/pow(2,i-1);
+    }
+    if (fb==0) 
+    {
+        *solutie=c;
+            *err=(b-a)/pow(2,i-1);
+    }
+    if ((fa*fb)<0) 
+    while(true)
+    {
+        c=(a+b)/2;
+        i++;
+        if (fabs(f(c))<delta) 
+        {
+            *solutie=c;
+            *err=(b-a)/pow(2,i-1);
+            break;
+        }
+        if ((fa*f(c))<0) b=c;
+        else a=c;
+    }
+    else cout<<"nu se poate reolva ecuatia";
+    
+    
+}
+
+int main()
+{
+    double a=0,b=10,delta=0.01,sol,er;
+    injumatatire(a,b,delta,&sol,&er);
+    cout<<sol<<' '<<er;
+    
+}

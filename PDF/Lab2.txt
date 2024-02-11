@@ -1,0 +1,85 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int i,n;
+    double a,b,x[100]={0};
+    cin>>a>>b>>n;
+    x[0]=a;
+    x[n-1]=b;
+    for(i=1;i<=n-2;i++)
+    x[i]=a+i*((b-a)/(n-1));
+    for(i=0;i<=n-1;i++)
+    cout<<x[i]<<' ';
+}
+*********************************************
+#include <iostream>
+#include <cmath>
+#include <fstream>
+using namespace std;
+ofstream g("functie.txt");
+double f(double x)
+{
+    return pow(x,2);
+}
+int main()
+{
+    int i,n=11;
+    double a=10.0,b=20.0,x[100]={0},y[100];
+    for(i=0;i<=n-1;i++)
+    {
+    x[i]=a+i*((b-a)/(n-1));
+    y[i]=f(x[i]);
+    }
+    for(i=0;i<=n-1;i++)
+    g<<x[i]<<' '<<y[i]<<endl;
+}
+***********************************************
+#include <iostream>
+#include <cmath>
+#include <fstream>
+using namespace std;
+ofstream g("functie.txt");
+double f(double x)
+{
+    return sin(x);
+}
+int main()
+{
+    int i,n=200;
+    double a=0,b=2*3.14,x[200]={0},y[200];
+    for(i=0;i<=n-1;i++)
+    {
+    x[i]=a+i*((b-a)/(n-1));
+    y[i]=f(x[i]);
+    }
+    for(i=0;i<=n-1;i++)
+    g<<x[i]<<' '<<y[i]<<endl;
+}
+****************************************************
+#include <iostream>
+#include <cmath>
+#include <fstream>
+using namespace std;
+ofstream g("functie.txt");
+void f(int n,double x[],double y[])
+{
+    int i;
+    for(i=0;i<=n-1;i++)
+    y[i]=x[i];
+    
+}
+int main()
+{
+    int i,n=200;
+    double a=0,b=2*3.14,x[200]={0},y[200];
+    for(i=0;i<=n-1;i++)
+    {
+    x[i]=a+i*((b-a)/(n-1));
+    }
+    f(n,x,y);
+    for(i=0;i<=n-1;i++)
+    g<<x[i]<<' '<<y[i]<<endl;
+}

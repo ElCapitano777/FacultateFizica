@@ -1,0 +1,141 @@
+//calculati n!
+
+#include <stdio.h>
+int main()
+{
+   int n,i,p=1;
+   scanf("%d", &n);
+   for(i=1;i<=n;i++)
+   p=p*i;
+   printf("Factorialul= %d", p);
+}
+***************************************
+//media a 10 nr aleatoare din interv [20;80]
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main()
+{
+    int n[15],i;
+    float s=0, medie;
+    time_t t;
+    
+    srand((unsigned) time(&t));
+    for(i=1;i<=10;i++)
+    {
+        n[i]=20+(rand()%61);
+        s=s+n[i];
+    }
+    for(i=1;i<=10;i++)
+    printf("%d  ", n[i]);
+    printf("\n");
+    medie=s/10;
+    printf("media: %f",medie);
+}
+***************************************
+//media a 10 nr aleatoare cu o zecimala din interv [20;80]
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main()
+{
+    int i;
+    double n, s=0, medie;
+    time_t t;
+    
+    srand((unsigned) time(&t));
+    for(i=1;i<=10;i++)
+    {
+        n=(200+(rand()%610));
+        n/=10;
+        printf("%.1f  ", n);
+        s=s+n;
+    }
+    medie=s/10;
+    printf("\n media: %f",medie);
+}
+***************************************
+//media a 10 nr aleatoare cu k zecimale din interv [20;80]
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#include <math.h>
+
+int main()
+{
+    int i, k, x;
+    double n, s=0, medie;
+    time_t t;
+    printf("Cate zecimale?");
+    scanf("%d", &k);
+    srand((unsigned) time(&t));
+    for(i=1;i<=10;i++)
+    {
+        x=61*pow(10,k);
+        n=20*pow(10,k)+(rand()%x);
+        n/=pow(10,k);
+        printf("%f  ", n);
+        s=s+n;
+    }
+    medie=s/10;
+    printf("\n media: %f",medie);
+}
+***************************************
+//probabilitatea ca un nr din interv [20,80] sa pice
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#include <math.h>
+
+int main()
+{
+    int n[100]={0},i;
+    float p;
+    time_t t;
+    
+    srand((unsigned) time(&t));
+    for(i=1;i<=1000000;i++)
+    {
+        n[20+(rand()%61)]++;
+    }
+    for(i=20;i<=80;i++)
+   { 
+       p=n[i]/1000000.0;
+       printf("%d   %f\n", i, p);
+       
+   }
+}
+***************************************
+//probabilitatea ca un nr cu o zecimala din interv [20,80] sa pice
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#include <math.h>
+
+int main()
+{
+    int n[1000]={0},i;
+    float p, x;
+    time_t t;
+    
+    srand((unsigned) time(&t));
+    for(i=1;i<=1000000;i++)
+    {
+        n[200+(rand()%610)]++;
+    }
+    for(i=200;i<=800;i++)
+   { 
+       p=n[i]/1000000.0;
+       x=i;
+       printf("%.1f   %f\n",x/10.0, p);
+       
+   }
+}
+***************************************

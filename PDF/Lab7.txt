@@ -1,0 +1,84 @@
+#include <iostream>
+#define n 3
+using namespace std;
+void afisare_matrice(double a[n+1][n+1])
+{
+    int i,j;
+    for(i=0;i<n+1;i++)
+    {
+        for(j=0;j<n+1;j++)
+        cout<<a[i][j]<<' ';
+        cout<<endl;
+    }
+    cout<<endl;
+}
+void afisare_vector(double b[n+1])
+{
+    int i;
+    for(i=0;i<n+1;i++)
+        cout<<b[i]<<' ';
+    cout<<endl<<endl;
+}
+void sist_triunghi(double a[n+1][n+1],double b[n+1],double x[n+1])
+{
+    int i,j;
+    double suma;
+    x[n+1]=b[n+1]/a[n+1][n+1];
+    for(i=n+1;i>0;i--)
+    {
+        suma = 0;
+        for(j=i+1;j<n+1;j++)
+        suma=suma+a[i][j]*x[j];
+    x[i]=(b[i]-suma)/a[i][i];
+    }
+}
+void copiere_matrice(double a[n+1][n+1], double d[n+1][n+1])
+{
+    int i,j;
+    for(i=0;i<n+1;i++)
+        for(j=0;j<n+1;j++)
+        d[i][j]=a[i][j];
+}
+void copiere_vector(double b[n+1], double c[n+1])
+{
+    int i;
+    for(i=0;i<n+1;i++)
+        c[i]=b[i];
+}
+void gauss(double a[n+1][n+1],double b[n+1],double x[n+1])
+{
+    int k,j,i;
+    double d[n+1][n+1];
+    double c[n+1];
+    for(k=1;k<=n;k++)
+    {
+        copiere_matrice(a,d);
+        copiere_vector(b,c);
+        a[k][k]=1;
+        for(j=k+1;j<=n+1;j++)
+            a[k][j]=d[k][j]/d[k][k];
+        b[k]=c[k]/d[k][k];
+        for(i=k+1;i<=n+1;i++)
+        {
+            a[i][k]=0;
+            for(j=k+1;j<=n+1;j++)
+                a[i][j]=d[i][j]-d[i][k]*d[k][j];
+            b[i]=c[i]-d[i][k]*b[k];
+        }
+        afisare_matrice(a);
+        afisare_vector(b);
+    }
+
+    sist_triunghi(d,c,x);
+}
+
+int main()
+{
+    double a[n+1][n+1]={0,0,0,0,0,1,1,1,0,1,2,4,0,1,3,9}, d[n+1][n+1]={0};
+    double b[n+1]={0,4,7,14},c[n+1]={0};
+    double x[n+1]={0};
+    afisare_matrice(a);
+    afisare_vector(b);
+    gauss(a,b,x);
+    afisare_vector(x);
+}
