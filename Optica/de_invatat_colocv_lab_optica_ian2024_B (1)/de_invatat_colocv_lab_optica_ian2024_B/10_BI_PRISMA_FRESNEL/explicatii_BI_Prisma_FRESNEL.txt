@@ -1,0 +1,6 @@
+de invatat ce-i in directorul
+"BI_PRISMA_FRESNEL_edUniv"
+
+ptr raport : de raspuns la intrebarile 
+din fisierul
+"BI_PRISMA_FRESNEL_INTREBARI_RAPORT.doc"

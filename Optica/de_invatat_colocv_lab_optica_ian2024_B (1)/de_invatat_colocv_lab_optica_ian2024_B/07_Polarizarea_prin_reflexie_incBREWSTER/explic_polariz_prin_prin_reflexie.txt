@@ -1,0 +1,13 @@
+de invatat 
+
+partea cu galben din referatul 
+"08_Polarizarea_prin_reflexie_incBREWSTER_GALBEN.pdf  sau .doc "
+
+
+tot ce este in fisierul
+"polarizareaprinreflexieDOC   .pdf  sau .doc"
+
+
+ptr RAPORT :
+de raspuns la intrebarile din fisierul
+"polarizareaprinreflexieDOC    .pdf sau  .doc"
